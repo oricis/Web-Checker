@@ -1,3 +1,15 @@
+# Web Checker
+
+This is a validation and checker tool to help in the maintenance of a
+website.
+
+*** 
+Sitio desarrollador: https://www.ironwoods.es
+
+2020 Moisés Alcocer - MIT Licence
+
+************************************************************************
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

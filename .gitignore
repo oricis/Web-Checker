@@ -7,9 +7,13 @@
 
 # testing
 /coverage
+cypress/screenshotsFolder/*
+cypress/videosFolder/*
+cypress/integration/examples/*
 
 # production
 /build
+build/
 
 # misc
 .DS_Store
@@ -18,6 +22,15 @@
 .env.test.local
 .env.production.local
 
+#editor
+.vscode/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+TODO.*
+version.*
+*/*.doc
+tests/vendor/*
