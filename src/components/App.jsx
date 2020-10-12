@@ -1,4 +1,5 @@
 import React from 'react';
+import Main from './main/Main.jsx';
 import logo from '../assets/images/logo.svg';
 import '../assets/css/reset.css';
 import './App.css';
@@ -11,9 +12,7 @@ function App() {
 
                 Web Checker
             </header>
-            <main>
-
-            </main>
+            <Main />
             <footer>
                 2020 Moisés Alcocer - MIT Licence
             </footer>
