@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { runCheckers } from '../../actions/app.js';
+import Options from '../options/Options.jsx';
+import TextButton from '../buttons/TextButton.jsx';
 import './Main.css';
 
 const runApp = (url) => {
@@ -20,10 +22,12 @@ function Main()
                         defaultValue={url}
                         onChange={ event => setUrl( event.target.value ) } />
                 </div>
+                <TextButton
+                    text="Check site !"
+                    onClick={() => runApp(url)}>
+                </TextButton>
 
-                <div className="button-group">
-                    <button onClick={ () => runApp(url) }>Run</button>
-                </div>
+                <Options />
             </section>
 
             <section className="help-box top-5">
@@ -50,6 +54,8 @@ function Main()
                         CSS Validator Service
                     </a></li>
                 </ul>
+                ... and others.
+                One new tap / window will be open for each test.
             </section>
         </main>
     );
