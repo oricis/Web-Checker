@@ -23,11 +23,6 @@ function Main()
             <div className="button-group">
                 <button onClick={ () => runApp(url) }>Run</button>
             </div>
-
-            <div>https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwww.ironwoods.es&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=es
-
-            https://html5.validator.nu/?doc=https%3A%2F%2Fwww.ironwoods.es%2Fblog%2Fherramientas%2Fextensiones-chrome&showsource=yes</div>
-
         </main>
     );
 }
