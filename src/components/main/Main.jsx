@@ -12,17 +12,45 @@ function Main()
 
     return (
         <main>
-            <div className="form-group v-margin">
-                <label htmlFor="url">Type the website URL:</label>
-                <input type="url"
-                    id="url"
-                    defaultValue={url}
-                    onChange={ event => setUrl( event.target.value ) } />
-            </div>
+            <section>
+                <div className="form-group v-margin">
+                    <label htmlFor="url"><h3>Type the website URL:</h3></label>
+                    <input type="url"
+                        id="url"
+                        defaultValue={url}
+                        onChange={ event => setUrl( event.target.value ) } />
+                </div>
 
-            <div className="button-group">
-                <button onClick={ () => runApp(url) }>Run</button>
-            </div>
+                <div className="button-group">
+                    <button onClick={ () => runApp(url) }>Run</button>
+                </div>
+            </section>
+
+            <section className="help-box top-5">
+                <h4>Notice:</h4>
+
+                <p>If you are using a pop-up blocker tool you only
+                can use the first of the set validation tools.
+                You need to turn off your blocker to allow the tool
+                to run normally.</p>
+            </section>
+
+            <section className="help-box">
+                <h4>This tool runs:</h4>
+
+                <ul className="index">
+                    <li><a href="https://html5.validator.nu"
+                        target="_blank"
+                        rel="external nofollow noreferrer noopener">
+                        HTML5 Validator
+                    </a></li>
+                    <li><a href="https://jigsaw.w3.org/css-validator/"
+                        target="_blank"
+                        rel="external nofollow noreferrer noopener">
+                        CSS Validator Service
+                    </a></li>
+                </ul>
+            </section>
         </main>
     );
 }
