@@ -3,35 +3,59 @@ import Checkbox from '../forms/Checkbox.jsx';
 import SmallButton from '../buttons/SmallButton.jsx';
 import './Options.css';
 
-const selectAll = () => {
-    console.log('selectAll');
-}
-const selectBasic = () => {
-    console.log('selectBasic');
-}
-const selectNone = () => {
-    console.log('selectNone');
-}
+
 const handleCheckOption = (id, checked) => {
     console.log(id, checked);
 }
 
 function Options()
 {
-    const [url, setOption] = useState([]);
+    const [optionsGroupName, setOptionGroupSelected] = useState('basic');
+
+    const selectAll = () => {
+        console.log('selectAll');
+        const groupName = 'all';
+        setOptionGroupSelected(groupName);
+
+        // TODO: select all the options
+    }
+    const selectBasic = () => {
+        console.log('selectBasic');
+        const groupName = 'basic';
+        setOptionGroupSelected(groupName);
+
+        // TODO: select options in the group
+    }
+    const selectNone = () => {
+        console.log('selectNone');
+        const groupName = 'none';
+        setOptionGroupSelected(groupName);
+
+        // TODO: deselect all the options
+    }
+
+    const getCssExtraClass = (expectedOption, actualButton) => {
+        return (expectedOption === actualButton) ? 'activated' : '';
+    }
+    const cssClassNameForAll   = getCssExtraClass('all', optionsGroupName);
+    const cssClassNameForBasic = getCssExtraClass('basic', optionsGroupName);
+    const cssClassNameForNone  = getCssExtraClass('none', optionsGroupName);
 
     return (
         <section class="options">
             <h3>Options:</h3>
 
             <div className="option-buttons">
-                <strong>Select:</strong> <SmallButton text="All"
-                    onClick={selectAll} />
+                <strong>Select:</strong>
+                <SmallButton text="All"
+                    onClick={selectAll}
+                    extraCss={cssClassNameForAll} />
                 <SmallButton text="Basic"
                     onClick={selectBasic}
-                    extraCss="activated" />
+                    extraCss={cssClassNameForBasic} />
                 <SmallButton text="None"
-                    onClick={selectNone} />
+                    onClick={selectNone}
+                    extraCss={cssClassNameForNone} />
             </div>
 
             <div className="checkboxes">
