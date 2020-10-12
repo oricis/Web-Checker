@@ -46,7 +46,7 @@ function Options()
             <h3>Options:</h3>
 
             <div className="option-buttons">
-                <strong>Select:</strong>
+                <strong>Select: </strong>
                 <SmallButton text="All"
                     onClick={selectAll}
                     extraCss={cssClassNameForAll} />
