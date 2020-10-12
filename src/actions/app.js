@@ -1,5 +1,5 @@
-const runCheckers = () => {
-    console.log('clicked');
+const runCheckers = (url) => {
+    console.log('Target: ' + url);
 }
 
 
