@@ -4,7 +4,8 @@ import logo from '../assets/images/logo.svg';
 import '../assets/css/reset.css';
 import './App.css';
 
-function App() {
+function App()
+{
     return (
         <div className="App">
             <header>
