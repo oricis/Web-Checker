@@ -27,3 +27,16 @@ footer * {
 main {
     min-height: 74vh;
 }
+
+.help-box {
+    font-size : calc(1rem + 2px);
+    font-style: italic;
+    padding: 1rem 5rem;
+}
+.top-5 {
+    margin-top: 5%;
+}
+
+ul.index li {
+    margin: .8rem auto;
+}
