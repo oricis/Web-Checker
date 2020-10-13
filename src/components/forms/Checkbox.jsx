@@ -4,19 +4,21 @@ import './forms.css';
 
 function Checkbox(props)
 {
-    const [checked, setChecked] = useState(props.checked);
+    const [checkedStatus, setChecked] = useState(props.checked);
     const handleChange = () => {
-        setChecked(!checked);
+        setChecked(!checkedStatus);
 
-        props.onChange(props.id, !checked);
+        props.onChange(props.id, !checkedStatus);
     }
+
     return (
         <div>
             <input type="checkbox"
                 id={props.id}
-                checked={checked}
+                checked={checkedStatus}
                 defaultValue={props.value}
                 onChange={handleChange} />
+
             <label htmlFor={props.id}>
                 {props.text}
             </label>
