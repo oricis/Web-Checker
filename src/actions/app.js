@@ -1,4 +1,4 @@
-const runCheckers = (url) => {
+const runCheckers = (url, storedOptions) => {
     console.log('Target: ' + url, getUri(url)); // HACK: trace
 
     const buttonContrast = 'https://www.aditus.io/button-contrast-checker/';
@@ -16,26 +16,51 @@ const runCheckers = (url) => {
     const securityHeaders = 'https://securityheaders.com/?q=';
     const siteCost = 'https://whatdoesmysitecost.com/?siteURL=';
 
-    const arrLinks = [
-        buttonContrast,
-        cssValitador + url,
-        facebookDebug + url,
-        gtMextrix + url,
-        html5Valitador + url,
-        keywordsDensity + url,
-        jsValidator + url,
-        microdata + url,
-        mobileFrindly + url,
-        mozillaObservatory + getUri(url),
-        openlinkprofiler + url,
-        pageSpeed + url,
-        securityHeaders + url,
-        siteCost + url,
-    ];
+
+
+    const allOptions = {
+        'button-contrast' : buttonContrast,
+        'css'             : cssValitador    + url,
+        'facebook'        : facebookDebug   + url,
+        'gtmetrix'        : gtMextrix       + url,
+        'headers'         : securityHeaders + url,
+        'html5'           : html5Valitador  + url,
+        'js'              : jsValidator     + url,
+        'keywords-density': keywordsDensity + url,
+        'links'           : openlinkprofiler + url,
+        'microdata'       : microdata       + url,
+        'mobile-friendly' : mobileFrindly   + url,
+        'mozilla'         : mozillaObservatory + getUri(url),
+        'page-speed'      : pageSpeed       + url,
+        'site-cost'       : siteCost        + url,
+    };
+
+    const arrLinks = (allOptions.length === storedOptions.length)
+        ? Object.values(allOptions)
+        : Object.values(removeKeys(allOptions, storedOptions));
 
     for (let i = 0; i < arrLinks.length; i++) {
         openNewTab(arrLinks[i]);
     }
+}
+
+const removeKeys = (allKeys, arrToPreserve) => {
+    const result = {};
+
+    const objectKeys = Object.keys(allKeys);
+    for (let i = 0; i < objectKeys.length; i++) {
+        const objectKey = objectKeys[i];
+
+
+        for (let j = 0; j < arrToPreserve.length; j++) {
+            const optionName = arrToPreserve[j];
+            if (objectKey === optionName) {
+                result[objectKey] = allKeys[objectKey];
+            }
+        }
+    }
+
+    return result;
 }
 
 const getUri = (url) => {
