@@ -1,4 +1,5 @@
 const arrAllOptions = [
+    'button-contrast',
     'css',
     'facebook',
     'gtmetrix',
