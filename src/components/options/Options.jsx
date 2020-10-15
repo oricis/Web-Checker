@@ -2,40 +2,62 @@ import React, { useEffect, useState } from 'react';
 import Checkbox from '../forms/Checkbox.jsx';
 import SmallButton from '../buttons/SmallButton.jsx';
 import UUIDGeneratorBrowser from '../../helpers/generateID.js';
-import { ucfirst } from '../../helpers/str.js';
+import Storage from '../../services/Storage.js';
 import { arrAllOptions, arrBasicOptions } from '../../data/group-options.js';
+import { checkArray, removeValue } from '../../helpers/arr.js';
+import { storageKey } from '../../data/config.js';
+import { ucfirst } from '../../helpers/str.js';
 import './Options.css';
 
 
-const handleCheckOption = (id, checked) => {
-    console.log(id, checked);
-}
+
 
 const INIT = {
-    name: 'basic',
-    group: arrBasicOptions
+    name: 'basic'
 };
 function Options()
 {
+    const storage = new Storage();
     const [options, setOptions] = useState(INIT);
     useEffect(() => {
-        selectCheckboxes();
+        console.log(666)
     });
 
+    const handleOptionStatus = (value, checked) => {
+        let selectedOptions = storage.get(storageKey);
+
+        // In case of the storage key & array was deleted!
+        if (! checkArray(selectedOptions)) {
+            selectNone();
+            return;
+        }
+
+        if (selectedOptions.includes(value) && checked === false) {
+            selectedOptions = removeValue(selectedOptions, value);
+            storage.set(storageKey, selectedOptions);
+            return;
+        }
+
+        if (! selectedOptions.includes(value) && checked === true) {
+            selectedOptions.push(value);
+            storage.set(storageKey, selectedOptions);
+        }
+    }
+
     const selectAll = () => {
-        //const newOptions = JSON.parse(JSON.stringify(arrAllOptions));
+        storage.set(storageKey, arrAllOptions);
         setOptions({
             name: 'all',
-            group: arrAllOptions
         });
     }
     const selectBasic = () => {
+        storage.set(storageKey, arrBasicOptions);
         setOptions(INIT);
     }
     const selectNone = () => {
+        storage.set(storageKey, []);
         setOptions({
             name: 'none',
-            group: []
         });
     }
 
@@ -46,15 +68,6 @@ function Options()
     const cssClassNameForBasic = getCssExtraClass('basic', options.name);
     const cssClassNameForNone  = getCssExtraClass('none', options.name);
 
-    const selectCheckboxes = () => {
-        console.log('Marcando: ', options.group); // HACK:
-        const checkedOptions = JSON.parse(JSON.stringify(options.group));
-        const selectedGroupName = options.name;
-
-        // TODO:
-    }
-
-    // console.log(options.name, options.group.includes('css')); // HACK:
     const createCheckbox = (option) =>
     {
         return (
@@ -63,7 +76,7 @@ function Options()
                 checked={false}
                 defaultValue={option}
                 text={ucfirst(option)}
-                onChange={(value, checked) => { handleCheckOption(value, checked) }}>
+                onChange={(value, checked) => { handleOptionStatus(value, checked) }}>
             </Checkbox>
         );
     }
@@ -71,7 +84,7 @@ function Options()
     return (
         <section className="options">
             <h3>Options:</h3>
-            { console.log('Inside return: ' + options.group.includes('css')) }
+
             <div className="option-buttons">
                 <strong>Select: </strong>
                 <SmallButton text="All"

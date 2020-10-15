@@ -1,6 +1,7 @@
 const runCheckers = (url) => {
     console.log('Target: ' + url, getUri(url)); // HACK: trace
 
+    const buttonContrast = 'https://www.aditus.io/button-contrast-checker/';
     const cssValitador   = 'https://jigsaw.w3.org/css-validator/validator?uri=';
     const facebookDebug  = 'https://developers.facebook.com/tools/debug/?q=';
     const gtMextrix      = 'https://gtmetrix.com/?url=';
@@ -16,6 +17,7 @@ const runCheckers = (url) => {
     const siteCost = 'https://whatdoesmysitecost.com/?siteURL=';
 
     const arrLinks = [
+        buttonContrast,
         cssValitador + url,
         facebookDebug + url,
         gtMextrix + url,

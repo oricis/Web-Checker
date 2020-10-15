@@ -16,6 +16,7 @@ const arrAllOptions = [
 ];
 
 const arrBasicOptions = [
+    'button-contrast',
     'css',
     'html5',
     'links',

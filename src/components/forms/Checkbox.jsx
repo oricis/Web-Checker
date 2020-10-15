@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
+import Storage from '../../services/Storage.js';
+import { storageKey } from '../../data/config.js';
 import './forms.css';
 
 
 function Checkbox(props)
 {
-    const [checkedStatus, setChecked] = useState(props.checked);
+    const storage = new Storage();
+    const selectedOptions = storage.get(storageKey);
+
+    const checked = (props.checked)
+        ? props.checked
+        : (selectedOptions.includes(props.defaultValue));
+
+    const [checkedStatus, setChecked] = useState(checked);
+
     const handleChange = () => {
         setChecked(!checkedStatus);
 
-        props.onChange(props.id, !checkedStatus);
+        props.onChange(props.defaultValue, !checkedStatus);
     }
 
     return (
         <div>
             <input type="checkbox"
-                id={props.id}
+                id={props.defaultValue}
                 checked={checkedStatus}
-                defaultValue={props.value}
+                defaultValue={props.defaultValue}
                 onChange={handleChange} />
 
             <label htmlFor={props.id}>
