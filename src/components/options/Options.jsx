@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Checkbox from '../forms/Checkbox.jsx';
 import SmallButton from '../buttons/SmallButton.jsx';
 import UUIDGeneratorBrowser from '../../helpers/generateID.js';
@@ -19,9 +19,6 @@ function Options()
 {
     const storage = new Storage();
     const [options, setOptions] = useState(INIT);
-    useEffect(() => {
-        console.log(666)
-    });
 
     const handleOptionStatus = (value, checked) => {
         let selectedOptions = storage.get(storageKey);
