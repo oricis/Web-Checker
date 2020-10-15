@@ -1,3 +1,15 @@
+const getUri = (url) => {
+    if (url.indexOf('https://') === 0) {
+        return url.substring(('https://').length, url.length);
+    }
+
+    if (url.indexOf('http://') === 0) {
+        return url.substring(('http://').length, url.length);
+    }
+
+    return url;
+}
+
 const ucfirst = (str) => {
     if (typeof str !== 'string')
         return '';
@@ -7,5 +19,6 @@ const ucfirst = (str) => {
 
 
 export {
+    getUri,
     ucfirst,
 }
