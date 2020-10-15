@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { runCheckers } from '../../actions/app.js';
 import Options from '../options/Options.jsx';
+import Storage from '../../services/Storage.js';
 import TextButton from '../buttons/TextButton.jsx';
+import { storageKey } from '../../data/config.js';
 import './Main.css';
 
 const runApp = (url) => {
-    runCheckers(url);
+    const storage = new Storage();
+    runCheckers(url, storage.get(storageKey));
 }
 
 function Main()
