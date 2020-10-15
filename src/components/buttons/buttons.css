@@ -1,0 +1,11 @@
+.btn {
+    border  : 1px solid var(--darkgrey);
+    padding : 1rem 2rem;
+}
+.btn-small {
+    padding: .5rem;
+}
+
+.activated {
+    box-shadow: 0 0 0 2px var(--focus);
+}

@@ -2,7 +2,11 @@
     height        : 8vmin;
     pointer-events: none;
 }
-
+body {
+    --darkgrey: #4e4e4e;
+    padding: 0;
+    max-width: 100%;
+}
 header,
 footer {
     align-items     : center;
@@ -25,5 +29,26 @@ footer * {
     color: white;
 }
 main {
+    margin    : 0 auto;
+    max-width : 800px;
     min-height: 74vh;
+}
+
+.help-box {
+    font-style: italic;
+    padding   : 1rem;
+}
+.top-5 {
+    margin-top: 5%;
+}
+
+ul.index li {
+    margin: .8rem auto;
+}
+@media (min-width:720px)
+{
+    .help-box {
+        font-size : calc(1rem + 2px);
+        padding   : 1rem 5rem;
+    }
 }

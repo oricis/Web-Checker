@@ -1,0 +1,10 @@
+.form-group {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+}
+.v-margin {
+    margin-bottom : 1rem;
+    margin-top    : 1rem;
+}
+
