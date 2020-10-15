@@ -5,9 +5,12 @@ const checkArray = (data) => {
 }
 
 const removeValue = (arr, value) => {
-    return (checkArray(arr))
-        ? arr.filter(arrValue => arrValue !== value)
-        : arr;
+    const index = arr.indexOf(value);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+
+    return arr;
 }
 
 
