@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Checkbox from '../forms/Checkbox.jsx';
 import SmallButton from '../buttons/SmallButton.jsx';
 import UUIDGeneratorBrowser from '../../helpers/generateID.js';
@@ -18,6 +18,10 @@ const INIT = {
 function Options()
 {
     const [options, setOptions] = useState(INIT);
+    useEffect(() => {
+        selectCheckboxes();
+    });
+
     const selectAll = () => {
         //const newOptions = JSON.parse(JSON.stringify(arrAllOptions));
         setOptions({
@@ -43,6 +47,7 @@ function Options()
     const cssClassNameForNone  = getCssExtraClass('none', options.name);
 
     const selectCheckboxes = () => {
+        console.log('Marcando: ', options.group); // HACK:
         const checkedOptions = JSON.parse(JSON.stringify(options.group));
         const selectedGroupName = options.name;
 
