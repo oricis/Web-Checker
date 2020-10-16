@@ -57,8 +57,19 @@ function Main()
                         CSS Validator Service
                     </a></li>
                 </ul>
-                ... and others.
-                One new tap / window will be open for each test.
+                <p>
+                    ... and others.
+                    One new tap / window will be open for each test.
+                </p>
+                <p>Each linked tool is free or the free version of a
+                commercial tool, all rights are of their respective owners.
+                I don't offer guarantees about the linked web tools and
+                don't assume responsibilities by their use or the use
+                of this web app.</p>
+                <p>I don't track anything activity of users. If some link isn't working you can put an issue on <a href="https://oricis.github.io/Web-Checker/"
+                    target="_blank"
+                    rel="external noreferrer noopener">
+                    this project's repository page on Github</a>.</p>
             </section>
         </main>
     );
