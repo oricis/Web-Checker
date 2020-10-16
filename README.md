@@ -1,10 +1,22 @@
-# Web Checker
+# Web Checker v.1.0.0
 
 This is a validation and checker tool to help in the maintenance of a
-website.
+website across linked third-party web tools.
 
-*** 
-Sitio desarrollador: https://www.ironwoods.es
+Demo here: https://oricis.github.io/Web-Checker/
+
+***
+
+This tool link other website tools, all of them are free or the free version
+of a commercial tool, all rights are of their respective owners.
+I don't offer guarantees about the linked web tools or their contents
+and don't assume responsibilities by their use or the use of this web app.
+
+I don't track anything activity of users. If some link in the demo
+isn't working you can put an issue on this repository page or contact make
+on my website: https://www.ironwoods.es
+
+***
 
 2020 Moisés Alcocer - MIT Licence
 
